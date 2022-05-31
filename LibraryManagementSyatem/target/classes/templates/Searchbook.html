@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style type="text/css">
+
+body  {
+  background-image: url("List.jpg");
+  background-color: #cccccc;
+}
+</style>
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>All Books</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+	
+</head>
+<body>
+
+	<div class="container my-2">
+		<div class="card">
+			<div class="card-body">
+				<div class="container my-5">
+					<div class="col-md-12">
+						<div >
+							<table class="table table-striped table-responsive-md">
+							<h2 class="text-center">List of Books</h2>
+								<thead>
+								<form th:action="@{/fetch}" class="form-inline my-2 my-lg-0">
+<!--    <input class="form-control mr-sm-2" name= "id" id = "id" type="text" placeholder="Search" aria-label="Search" th:value="${id}"> -->
+        <input class="form-control mr-sm-2" name= "id" id = "id" type="text" placeholder="Search" aria-label="Search" th:value="${id}">
+        <input class="btn btn-outline-success active my-2 my-sm-0" type="submit" value="Search" />
+        <a href="/login" class="btn btn-info" role="button">Login</a>
+    </form>
+									<tr>
+										<th>Book ID</th>
+										<th>Book Name</th>
+										<th>Author Name</th>
+										<th>Quantity</th>
+									
+								</tr>
+							
+								</thead>
+								<tbody>
+								     	<tr th:each="b  :${book}">
+										
+										<td th:text="${b.bookId}"></td> 
+										<td th:text="${b.bookName}"></td> 
+										
+										<td th:text="${b.author}"></td>
+										
+										<td th:text="${b.quantity}"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+</html>
